@@ -1,8 +1,15 @@
 <template>
-  <div>
-    <InputText v-model="value"/>
-    <ul v-if="showCitiesList">
+  <div class="input-search">
+    <div class="input-search__input">
+      <InputText :placeholder="'Search city'" v-model="value"/>
+      <ButtonAdd :disabled="!valueIsFound" @click="onAddClick">
+        add
+      </ButtonAdd>
+    </div>
+    <ul class="input-search-list"
+        v-if="showCitiesList && citiesList.length">
       <li
+          class="input-search-list__item"
           v-for="city of citiesList"
           :key="city.id"
           @click="selectCity(city)"
@@ -10,19 +17,16 @@
         {{ city.name }}
       </li>
     </ul>
-    <ButtonAdd :disabled="!valueIsFound" @click="onAddClick">
-      add
-    </ButtonAdd>
   </div>
 </template>
 
 <script>
 import ButtonAdd from "@/components/UI/ButtonAdd";
 import InputText from "@/components/UI/InputText";
-import {forecastApi, searchApi} from "/Users/justc/Desktop/vue2-test/forecastApi"
+import {searchApi} from "/Users/justc/Desktop/vue2-test/forecastApi"
 
 export default {
-  name: "Form",
+  name: "InputSearch",
   components: {ButtonAdd, InputText},
   data: () => {
     return {
@@ -61,7 +65,7 @@ export default {
               name: currentValue
             }
           })
-          this.citiesList = data.results
+          this.citiesList = data.results ? data.results : []
           this.showCitiesList = true
         }
       } catch (error) {
@@ -81,11 +85,39 @@ export default {
       this.value = ""
       this.city = null
       this.valueIsFound = false
+      this.showCitiesList = false
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "src/assets/variables";
 
+.input-search {
+
+
+  &__input {
+    display: flex;
+  }
+}
+
+.input-search-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1rem;
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid $border;
+
+  &__item {
+    cursor: pointer;
+    padding: 10px;
+
+    &:hover {
+      background: $border;
+    }
+  }
+}
 </style>
