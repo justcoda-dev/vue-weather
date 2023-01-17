@@ -1,5 +1,5 @@
 <template>
-  <button class="button-delete" @click="onClick">
+  <button class='button-delete' @click='onClick'>
     <slot />
   </button>
 </template>
@@ -9,13 +9,13 @@ export default {
   name: 'ButtonDelete',
   methods: {
     onClick() {
-      this.$emit('click');
-    },
-  },
-};
+      this.$emit('click')
+    }
+  }
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import 'src/assets/variables';
 
 .button-delete {

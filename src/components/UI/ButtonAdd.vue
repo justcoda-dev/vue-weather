@@ -1,5 +1,5 @@
 <template>
-  <button class="button-add" :disabled="disabled" @click="onClick">
+  <button class='button-add' :disabled='disabled' @click='onClick'>
     <slot />
   </button>
 </template>
@@ -10,18 +10,18 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      require: false,
-    },
+      require: false
+    }
   },
   methods: {
     onClick() {
-      this.$emit('click');
-    },
-  },
-};
+      this.$emit('click')
+    }
+  }
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import 'src/assets/variables';
 
 .button-add {

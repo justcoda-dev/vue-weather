@@ -1,10 +1,10 @@
 <template>
   <input
-    class="input-text"
-    @input="onInput"
-    type="text"
-    :value="value"
-    :placeholder="placeholder"
+    class='input-text'
+    @input='onInput'
+    type='text'
+    :value='value'
+    :placeholder='placeholder'
   />
 </template>
 
@@ -14,22 +14,22 @@ export default {
   props: {
     value: {
       type: String,
-      require: false,
+      require: false
     },
     placeholder: {
       type: String,
-      require: false,
-    },
+      require: false
+    }
   },
   methods: {
     onInput({ target: { value } }) {
-      this.$emit('input', value);
-    },
-  },
-};
+      this.$emit('input', value)
+    }
+  }
+}
 </script>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 @import 'src/assets/variables';
 
 .input-text {
