@@ -1,24 +1,22 @@
 <template>
-  <button
-      class="button-delete"
-      @click="onClick">
-    <slot/>
+  <button class="button-delete" @click="onClick">
+    <slot />
   </button>
 </template>
 
 <script>
 export default {
-  name: "ButtonDelete",
+  name: 'ButtonDelete',
   methods: {
     onClick() {
-      this.$emit("click")
-    }
-  }
-}
+      this.$emit('click');
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/variables";
+@import 'src/assets/variables';
 
 .button-delete {
   width: 70px;
@@ -28,7 +26,7 @@ export default {
   border-radius: 0;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 
   &:first-letter {
     text-transform: uppercase;
@@ -39,7 +37,7 @@ export default {
   }
 
   &:disabled {
-    opacity: .6;
+    opacity: 0.6;
     cursor: default;
 
     &:hover {

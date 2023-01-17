@@ -1,32 +1,28 @@
 <template>
-  <button
-      class="button-add"
-      :disabled="disabled"
-      @click="onClick"
-  >
-    <slot/>
+  <button class="button-add" :disabled="disabled" @click="onClick">
+    <slot />
   </button>
 </template>
 
 <script>
 export default {
-  name: "ButtonAdd",
+  name: 'ButtonAdd',
   props: {
     disabled: {
       type: Boolean,
-      require: false
-    }
+      require: false,
+    },
   },
   methods: {
     onClick() {
-      this.$emit("click")
-    }
-  }
-}
+      this.$emit('click');
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/variables";
+@import 'src/assets/variables';
 
 .button-add {
   width: 100px;
@@ -36,7 +32,7 @@ export default {
   border-radius: 0;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 
   &:first-letter {
     text-transform: uppercase;

@@ -1,13 +1,10 @@
 <template>
-  <select
-      @change="onChange"
-      class="select"
-  >
+  <select @change="onChange" class="select">
     <option
-        class="select__option"
-        v-for="(option, index) of optionsList"
-        :key="index"
-        :value="option"
+      class="select__option"
+      v-for="(option, index) of optionsList"
+      :key="index"
+      :value="option"
     >
       {{ option }}
     </option>
@@ -16,23 +13,23 @@
 
 <script>
 export default {
-  name: "Select",
+  name: 'Select',
   props: {
     optionsList: {
       type: Array,
-      require: true
-    }
+      require: true,
+    },
   },
   methods: {
-    onChange({target: {value}}) {
-      this.$emit("change", value)
-    }
-  }
-}
+    onChange({ target: { value } }) {
+      this.$emit('change', value);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/variables";
+@import 'src/assets/variables';
 
 .select {
   font-size: 1.1rem;
